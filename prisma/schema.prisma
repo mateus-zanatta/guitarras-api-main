@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Cliente {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  senha     String
+  agendas   Agenda[]
+}
+
+model Agenda {
+  id             Int      @id @default(autoincrement())
+  id_cliente     Int
+  id_evento      Int
+  data_inclusao  DateTime @default(now())
+  cliente        Cliente  @relation(fields: [id_cliente], references: [id])
+  evento         Evento   @relation(fields: [id_evento], references: [id])
+}
+
+model Evento {
+  id           Int      @id @default(autoincrement())
+  artista      String
+  foto_artista String?
+  data_hora    DateTime
+  acesso       String?
+  portao       String?
+  id_local     Int
+  id_admin     Int
+  local        Local    @relation(fields: [id_local], references: [id])
+  admin        Admin    @relation(fields: [id_admin], references: [id])
+  agendas      Agenda[]
+}
+
+model Local {
+  id       Int       @id @default(autoincrement())
+  nome     String
+  endereco String
+  numero   String
+  cidade   String
+  foto     String?
+  eventos  Evento[]
+}
+
+model Admin {
+  id       Int      @id @default(autoincrement())
+  nome     String
+  email    String   @unique
+  senha    String
+  eventos  Evento[]
+}

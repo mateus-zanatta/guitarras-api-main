@@ -1,0 +1,38 @@
+{
+  "name": "guitarras-api",
+  "version": "1.0.0",
+  "description": "API de Venda de Guitarras - Trabalho #1 APIs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@prisma/adapter-mariadb": "^7.8.0",
+    "@prisma/adapter-pg": "^7.9.1",
+    "@prisma/client": "^7.8.0",
+    "@prisma/config": "^7.8.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.22.4",
+    "nodemailer": "^6.10.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^25.5.2",
+    "@types/nodemailer": "^6.4.15",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^6.0.2"
+  }
+}
